@@ -23,7 +23,7 @@
         {
             this.TaskName = null;
             this.TaskDescription = null;
-            //this.DateTimesStruct.DateAdd = DateTime.MinValue;
+            this.DateTimesStruct.DateAdd = DateTime.MinValue;
             //DateTimesStruct = ;
 
         }
