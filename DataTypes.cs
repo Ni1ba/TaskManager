@@ -1,55 +1,53 @@
-﻿ 
+﻿
 namespace TaskManagerConsole
 {
     public class DataTypes
     {
-        public class TaskDateTimes
+
+        public struct TaskDateTimesStruct
         {
-            private DateTime dateAdd { get; set; }
-            //public DateTime dateStart;
-            //public DateTime dateEnd;
-            //public DateTime dateDeadLine;
+            // Поле
+            private DateTime _dateAdd;
+            private DateTime _dateStart;
+            private DateTime _dateEnd;
 
-            //конструктор
-            public TaskDateTimes(DateTime dateAdd, DateTime dateStart, DateTime dateEnd, DateTime dateDeadLine)
-            {
-                this.dateAdd = dateAdd;
-                //this.dateStart = dateStart;
-                //this.dateEnd = dateEnd;
-                //this.dateDeadLine = dateDeadLine;
+
+            // Конструктор
+            public TaskDateTimesStruct() 
+            { 
+                _dateAdd = DateTime.Now;
+                _dateStart = DateTime.Now;
+                _dateEnd = DateTime.Now;
             }
 
-            public DateTime DateAdd 
+            public TaskDateTimesStruct(DateTime dateAdd,DateTime dateStart,DateTime dateEnd)
             {
-                get => dateAdd; 
-                set => dateAdd=TypeDateTime(value)  ; 
+                _dateAdd = dateAdd;
+                _dateStart = dateStart;
+                _dateEnd = dateEnd;
+
             }
 
-            private DateTime TypeDateTime(DateTime value)
+            // геттер и сеттер 
+            public DateTime DateAdd
             {
-                return value.GetType() == typeof(DateTime) ? value : DateTime.MinValue;
-            }  
+                get { return _dateAdd; }
+                set { _dateAdd = value; }
+            }
+            public DateTime DateStart
+            {
+                get { return _dateStart; }
+                set { _dateStart = value; }
+            }
+
+            public DateTime DateEnd
+            {
+                get { return _dateEnd; }
+                set { _dateEnd = value; }
+            }
 
         }
 
     }
-
-    //public enum TaskStatusEnum
-    //{
-    //    Неопределенный,
-    //    Готов,
-    //    В_работе,
-    //    Брошено
-    //}
-
-    //public enum TaskPriorityEnum
-    //{
-    //    Высокий,
-    //    Средний,
-    //    Низкий
-    //}
-
-
-
 
 }

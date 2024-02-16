@@ -1,38 +1,33 @@
 ﻿namespace TaskManagerConsole
 {
     // класс задачи, в нем вся инфа о задаче
-    public class Task : DataTypes
+    public class Task 
     {
 
         //поля
-        DataTypes newTy = new DataTypes();
 
-
-        private string TaskName { get; set; }
-        private string TaskDescription { get; set; }
-        private dataTypes.TaskDateTimes DateTimesStruct { get; set; }
-
-        //private DateTimesStruct TaskDateTimes { get; set; }
-        //private TaskStatusEnum TaskStatus { get; set; }
-        //private TaskPriorityEnum TaskPriority { get; set; }
-
+        private string _taskName { get; set; }
+        private string _taskDescription { get; set; }
+        public DataTypes.TaskDateTimesStruct TaskDateTimesStruct;
+        
         //внутренние типы данных
 
         //конструктор
         public Task()
         {
-            this.TaskName = null;
-            this.TaskDescription = null;
-            this.DateTimesStruct.DateAdd = DateTime.MinValue;
-            //DateTimesStruct = ;
+            DataTypes.TaskDateTimesStruct localDt = new DataTypes.TaskDateTimesStruct();
 
+            _taskName = null;
+            _taskDescription = null;
+            TaskDateTimesStruct = localDt;
         }
 
         //геттеры/сеттеры
-        public string Name { get => TaskName; set => TaskName = value; }
+        public string Name { get => _taskName; set => _taskName= value; }
 
-        public string Description { get => TaskDescription; set => TaskDescription = value; }
+        public string Description { get => _taskName; set => _taskName = value; }
 
+         
     }
 }
 
