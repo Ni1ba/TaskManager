@@ -13,18 +13,18 @@ namespace TaskManagerConsole
 
 
             // Конструктор
-            public TaskDateTimesStruct() 
-            { 
+            public TaskDateTimesStruct()
+            {
                 _dateAdd = DateTime.Now;
                 _dateStart = DateTime.Now;
                 _dateEnd = DateTime.Now;
             }
 
-            public TaskDateTimesStruct(DateTime dateAdd,DateTime dateStart,DateTime dateEnd)
+            public TaskDateTimesStruct(DateTime dateAdd, DateTime dateStart, DateTime dateEnd)
             {
-                _dateAdd = dateAdd;
-                _dateStart = dateStart;
-                _dateEnd = dateEnd;
+                _dateAdd = CheckTypeDataTime(dateAdd) ;
+                _dateStart = CheckTypeDataTime(dateStart) ;
+                _dateEnd = CheckTypeDataTime(dateEnd) ;
 
             }
 
@@ -32,21 +32,37 @@ namespace TaskManagerConsole
             public DateTime DateAdd
             {
                 get { return _dateAdd; }
-                set { _dateAdd = value; }
+                set 
+                {
+                    _dateAdd = CheckTypeDataTime(value); 
+                }
             }
             public DateTime DateStart
             {
                 get { return _dateStart; }
-                set { _dateStart = value; }
+                set { _dateStart = CheckTypeDataTime(value); }
             }
 
             public DateTime DateEnd
             {
                 get { return _dateEnd; }
-                set { _dateEnd = value; }
+                set { _dateEnd = CheckTypeDataTime(value); }
             }
 
+            //на кой хер нужна проверка на дату? я хз, пусть будет
+            private   DateTime CheckTypeDataTime (DateTime value)
+            {
+                if (value.GetType() == typeof(DateTime))
+                {
+                    return value;
+                }
+                else
+                {
+                    throw new ArgumentException("Значение должно быть типа DateTime", nameof(value));
+                }
+            }
         }
+        // перечисление статусов 
 
     }
 
