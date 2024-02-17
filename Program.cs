@@ -37,7 +37,7 @@ namespace TaskManagerConsole
                  
 
                 UserChoice = exc.ValueNumeric( Console.ReadLine());
-
+               // Console.WriteLine(UserChoice);
             }
             while (UserChoice!=0);
         }

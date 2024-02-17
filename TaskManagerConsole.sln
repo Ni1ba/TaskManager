@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerConsole", "TaskManagerConsole.csproj", "{A538371A-C7D4-4618-9DE8-2D51C1BD1BD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerTests", "..\TaskManagerTests\TaskManagerTests.csproj", "{E716A8AE-A021-4BB2-8F79-57FB3E7318B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerTests", "..\TaskManagerTests\TaskManagerTests.csproj", "{E716A8AE-A021-4BB2-8F79-57FB3E7318B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
