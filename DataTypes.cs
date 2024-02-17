@@ -63,6 +63,19 @@ namespace TaskManagerConsole
             }
         }
         // перечисление статусов 
+        public enum TaskStatus
+        {
+            Неопределенный,
+            В_работе,
+            Готов,
+            Брошено, 
+        }
+        public enum TaskPriorityEnum
+        {
+            Высокий,
+            Средний,
+            Низкий
+        }
 
     }
 

@@ -9,7 +9,9 @@
         private string _taskName { get; set; }
         private string _taskDescription { get; set; }
         private DataTypes.TaskDateTimesStruct _taskDateTimesStruct;
-
+        //статус задачи
+        //
+        private DataTypes.TaskStatus _taskStatus { get; set; }
 
         //конструктор
         public Task()
