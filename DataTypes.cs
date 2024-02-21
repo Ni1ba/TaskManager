@@ -4,12 +4,12 @@ namespace TaskManagerConsole
     public class DataTypes
     {
 
-        public struct TaskDateTimesStruct
+        public class TaskDateTimesStruct
         {
             // Поле
-            private DateTime _dateAdd;
-            private DateTime _dateStart;
-            private DateTime _dateEnd;
+            public DateTime _dateAdd;
+            public DateTime _dateStart;
+            public DateTime _dateEnd;
 
 
             // Конструктор
@@ -28,13 +28,13 @@ namespace TaskManagerConsole
 
             }
 
-            // геттер и сеттер 
+            //геттер и сеттер
             public DateTime DateAdd
             {
                 get { return _dateAdd; }
-                set 
+                set
                 {
-                    _dateAdd = CheckTypeDataTime(value); 
+                    _dateAdd = CheckTypeDataTime(value);
                 }
             }
             public DateTime DateStart
