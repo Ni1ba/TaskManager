@@ -1,55 +1,82 @@
-﻿ 
+﻿
 namespace TaskManagerConsole
 {
     public class DataTypes
     {
-        public class TaskDateTimes
+
+        public class TaskDateTimesStruct
         {
-            private DateTime dateAdd { get; set; }
-            //public DateTime dateStart;
-            //public DateTime dateEnd;
-            //public DateTime dateDeadLine;
+            // Поле
+            public DateTime _dateAdd;
+            public DateTime _dateStart;
+            public DateTime _dateEnd;
 
-            //конструктор
-            public TaskDateTimes(DateTime dateAdd, DateTime dateStart, DateTime dateEnd, DateTime dateDeadLine)
+
+            // Конструктор
+            public TaskDateTimesStruct()
             {
-                this.dateAdd = dateAdd;
-                //this.dateStart = dateStart;
-                //this.dateEnd = dateEnd;
-                //this.dateDeadLine = dateDeadLine;
+                _dateAdd = DateTime.Now;
+                _dateStart = DateTime.Now;
+                _dateEnd = DateTime.Now;
             }
 
-            public DateTime DateAdd 
+            public TaskDateTimesStruct(DateTime dateAdd, DateTime dateStart, DateTime dateEnd)
             {
-                get => dateAdd; 
-                set => dateAdd=TypeDateTime(value)  ; 
+                _dateAdd = CheckTypeDataTime(dateAdd) ;
+                _dateStart = CheckTypeDataTime(dateStart) ;
+                _dateEnd = CheckTypeDataTime(dateEnd) ;
+
             }
 
-            private DateTime TypeDateTime(DateTime value)
+            //геттер и сеттер
+            public DateTime DateAdd
             {
-                return value.GetType() == typeof(DateTime) ? value : DateTime.MinValue;
-            }  
+                get { return _dateAdd; }
+                set
+                {
+                    _dateAdd = CheckTypeDataTime(value);
+                }
+            }
+            public DateTime DateStart
+            {
+                get { return _dateStart; }
+                set { _dateStart = CheckTypeDataTime(value); }
+            }
 
+            public DateTime DateEnd
+            {
+                get { return _dateEnd; }
+                set { _dateEnd = CheckTypeDataTime(value); }
+            }
+
+            //на кой хер нужна проверка на дату? я хз, пусть будет
+            private   DateTime CheckTypeDataTime (DateTime value)
+            {
+                if (value.GetType() == typeof(DateTime))
+                {
+                    return value;
+                }
+                else
+                {
+                    throw new ArgumentException("Значение должно быть типа DateTime", nameof(value));
+                }
+            }
+        }
+        // перечисление статусов 
+        public enum TaskStatus
+        {
+            Неопределенный,
+            В_работе,
+            Готов,
+            Брошено, 
+        }
+        public enum TaskPriorityEnum
+        {
+            Высокий,
+            Средний,
+            Низкий
         }
 
     }
-
-    //public enum TaskStatusEnum
-    //{
-    //    Неопределенный,
-    //    Готов,
-    //    В_работе,
-    //    Брошено
-    //}
-
-    //public enum TaskPriorityEnum
-    //{
-    //    Высокий,
-    //    Средний,
-    //    Низкий
-    //}
-
-
-
 
 }

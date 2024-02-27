@@ -1,39 +1,52 @@
 ﻿namespace TaskManagerConsole
 {
     // класс задачи, в нем вся инфа о задаче
-    public class Task : DataTypes
+    public class Task
     {
 
         //поля
-        DataTypes newTy = new DataTypes();
 
-
-        private string TaskName { get; set; }
-        private string TaskDescription { get; set; }
-        private dataTypes.TaskDateTimes DateTimesStruct { get; set; }
-
-        //private DateTimesStruct TaskDateTimes { get; set; }
-        //private TaskStatusEnum TaskStatus { get; set; }
-        //private TaskPriorityEnum TaskPriority { get; set; }
-
-        //внутренние типы данных
+        private string _taskName { get; set; }
+        private string _taskDescription { get; set; }
+        private DataTypes.TaskDateTimesStruct _taskDateTimesStruct;
+        //статус задачи 
+        private DataTypes.TaskStatus _taskStatus { get; set; }
 
         //конструктор
         public Task()
         {
-            this.TaskName = null;
-            this.TaskDescription = null;
-            //this.DateTimesStruct.DateAdd = DateTime.MinValue;
-            //DateTimesStruct = ;
-
+            _taskName = "";
+            _taskDescription = "";
+            _taskDateTimesStruct = new DataTypes.TaskDateTimesStruct(); 
+            
         }
 
         //геттеры/сеттеры
-        public string Name { get => TaskName; set => TaskName = value; }
+        public string Name { get => _taskName; set => _taskName = value; }
 
-        public string Description { get => TaskDescription; set => TaskDescription = value; }
+        public string Description { get => _taskDescription; set => _taskDescription = value; }
+
+        public DataTypes.TaskDateTimesStruct DateTimesStruct
+        {
+            get => _taskDateTimesStruct;
+            set
+            {
+                if (value.GetType() == typeof(DataTypes.TaskDateTimesStruct))
+                {
+                    _taskDateTimesStruct = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Значение должно быть типа DataTypes.TaskDateTimesStruct", nameof(value));
+                }
+            }
+
+            
 
     }
+
+    }
+
 }
 
 
